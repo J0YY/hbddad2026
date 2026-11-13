@@ -134,12 +134,12 @@ const E = {
     en: () => ({
       title: 'Under the brass clip', where: 'The trading room',
       body: ['Dad,', 'Porter spent the whole weekend staring at our four holdings, VONG, TQQQ, NVDA and Bitcoin, and by Sunday night he had convinced himself that every one of them was broken. He has queued up orders to sell the lot at the opening bell, which is about a minute from now.', 'You and I both know none of them is broken, but there’s no time to explain that to a receipt printer. He printed all four orders out, and then the printer got a bit carried away and they ended up scattered all over this room.', 'Find all four and tear them up before the bell rings. A couple of them landed in awkward places, so you may have to jump or crouch to get at them.', 'Joy'],
-      todo: ['The clock starts when you put this note down, and you have 60 seconds.', 'Find Porter’s four sell orders. They’re small glowing slips of paper. Click each one to tear it up, so Porter can’t sell anything.', 'Some are in awkward spots, so you’ll need to ' + KT('crouch (C)', 'crouch (the Crouch button)') + ' under things and ' + KT('jump (Space)', 'jump (the Jump button)') + ' over things.', 'If the bell rings first, Porter puts the orders back and you just try again. Tear up all four and you get the bell token and the key card for the next room.'],
+      todo: ['The clock starts when you put this note down, and you have 90 seconds.', 'Find Porter’s four sell orders. They’re small glowing slips of paper. Click each one to tear it up, so Porter can’t sell anything.', 'Some are in awkward spots, so you’ll need to ' + KT('crouch (C)', 'crouch (the Crouch button)') + ' under things and ' + KT('jump (Space)', 'jump (the Jump button)') + ' over things.', 'If the bell rings first, the clock just starts again, and anything you’ve already torn up stays torn up. Tear up all four and you get the bell token and the key card for the next room.'],
     }),
     zh: () => ({
       title: '铜夹子下面', where: '交易室',
       body: ['爸：', 'Porter 一整个周末都盯着我们的四样投资，VONG、TQQQ、NVDA 和比特币，到星期天晚上，他已经认定这四样全坏了，还下好了单，开盘铃一响就全部卖掉，离开盘大概只剩一分钟。', '你我都知道它们一样也没坏，可现在没时间跟一台小票打印机讲道理。他把四张卖单都打印了出来，结果打印机太卖力，单子飞得满屋都是。', '赶在开盘铃响之前把四张都找到撕掉。有几张落在不太好拿的地方，你可能得跳一下或者蹲下去才够得着。', 'Joy'],
-      todo: ['放下这张纸条就开始计时，你有 60 秒。', '找到 Porter 的四张卖单，就是会发光的小纸条。点一下就能撕掉，这样 Porter 就卖不成了。', '有几张在不好拿的地方，得' + KT('蹲下（C 键）', '蹲下（按“蹲”）') + '钻过去，或者' + KT('跳（空格键）', '跳（按“跳”）') + '翻过去。', '要是开盘铃先响了，Porter 会把单子放回去，再来一次就行。四张都撕掉，就能拿到铃铛铜牌和下一个房间的门卡。'],
+      todo: ['放下这张纸条就开始计时，你有 90 秒。', '找到 Porter 的四张卖单，就是会发光的小纸条。点一下就能撕掉，这样 Porter 就卖不成了。', '有几张在不好拿的地方，得' + KT('蹲下（C 键）', '蹲下（按“蹲”）') + '钻过去，或者' + KT('跳（空格键）', '跳（按“跳”）') + '翻过去。', '要是开盘铃先响了，只是重新计时，已经撕掉的不会回来。四张都撕掉，就能拿到铃铛铜牌和下一个房间的门卡。'],
     }),
   },
   R_trade: {
@@ -334,7 +334,7 @@ const HINTS_T = {
   screen: [
     ['The clock starts when you read Joy’s note, and it stops while you have something open to read, so there’s no rush while you’re looking at this.', '看完 Joy 的纸条就开始计时，打开东西阅读的时候计时会暂停，所以看提示不用着急。'],
     ['One order is in the wastebasket by the big desk, one is on the floor under a desk by the west windows, one is behind the low wall of boxes in the south-east corner, and one is under the SELL banner in the south-west corner.', '一张在大桌子旁的废纸篓里，一张在西边窗户旁一张桌子底下的地上，一张在东南角那排矮箱子后面，还有一张在西南角写着 SELL 的横幅底下。'],
-    ['Crouch (C) to reach under the desk and to get under the banner, and jump (Space) over the boxes. If the bell rings first, Porter puts everything back and the clock starts again.', '蹲下（C）才能够到桌子底下，也才能钻过横幅；跳（空格）才能翻过箱子。要是开盘铃先响了，Porter 会把单子放回去，重新计时。'],
+    ['Crouch (C) to reach under the desk and to get under the banner, and jump (Space) over the boxes. If the bell rings first, the clock just starts again and anything you’ve torn up stays torn up.', '蹲下（C）才能够到桌子底下，也才能钻过横幅；跳（空格）才能翻过箱子。要是开盘铃先响了，只是重新计时，撕掉的不会回来。'],
   ],
   chess: [
     ['Two white pieces are missing: one is somewhere low near the wall screen, and one is behind a little wall of crates in a corner.', '缺了两个白子：一个在墙上屏幕附近很低的地方，另一个在角落里一圈箱子后面。'],

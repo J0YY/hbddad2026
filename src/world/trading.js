@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { W, M, PAL, TEX, box, cyl, sphere, room, slidingDoor, item, mark, labelTex, FONT, showWhen, canvasTex, solid } from './kit.js';
+import { W, M, PAL, TEX, box, cyl, sphere, room, slidingDoor, item, mark, labelTex, FONT, showWhen, canvasTex, solid, vlight } from './kit.js';
 import { chair, plant, porterUnit, note, fixture, screen, token, familyPhoto } from './props.js';
 import { S } from '../core/state.js';
 import { G } from '../game/api.js';
@@ -313,7 +313,8 @@ export function buildTrading() {
     g.add(m);
     const lt = labelTex('ticket' + x, 128, 64, (c, w, h) => { c.fillStyle = '#f4efe2'; c.fillRect(0, 0, w, h); c.fillStyle = '#b0302a'; c.font = `800 24px ${FONT.mono}`; c.fillText('SELL', 12, 28); c.fillStyle = '#222'; c.font = `400 16px ${FONT.mono}`; c.fillText('ORDER', 12, 50); });
     const pm = M(0xffffff, { map: lt.tex, r: 0.9, side: THREE.DoubleSide, unique: true, e: 0xffffff, ei: 0.55 });
-    pm.emissiveMap = lt.tex; // a faint glow so the paper shows up in the darker corners
+    pm.emissiveMap = lt.tex; // a glow so the paper shows up in the darker corners
+    pm.emissiveIntensity = 0.9;
     const p = new THREE.Mesh(new THREE.PlaneGeometry(0.26, 0.13), pm);
     p.rotation.x = -Math.PI / 2;
     m.add(p);
@@ -323,18 +324,18 @@ export function buildTrading() {
     VONG: { pos: [1.95, 0.34, -13.55], obj: ticketMesh(1.95, 0.32, -13.55, 0.5), reach: 1.4, label: () => L('Fish the order out of the wastebasket', '把订单从废纸篓里捞出来') },
     NVDA: { pos: [-4.6, 0.05, -16.95], obj: ticketMesh(-4.6, 0.012, -16.95, -0.3), reach: 1.5, crouch: true, label: () => L('Reach under the desk for the order', '伸手到桌子底下够订单') },
     TQQQ: { pos: [6.25, 0.05, -8.6], obj: ticketMesh(6.25, 0.012, -8.6, 1.1), reach: 1.2, label: () => L('Grab the order behind the boxes', '抓起箱子后面的订单') },
-    BTC: { pos: [-6.35, 0.05, -8.65], obj: ticketMesh(-6.35, 0.012, -8.65, 0.2), reach: 1.15, label: () => L('Grab the order under the banner', '抓起横幅底下的订单') },
+    BTC: { pos: [-5.75, 0.05, -9.15], obj: ticketMesh(-5.75, 0.012, -9.15, 0.2), reach: 1.8, label: () => L('Grab the order under the banner', '抓起横幅底下的订单') },
   };
   for (const t of TICKETS) showWhen(TK[t].obj, () => !S.has('sell_' + t) && !S.has('fern_ok'));
+  vlight([-5.75, 0.7, -9.15], 0xffe6b0, 1.6, { dist: 2.2, on: () => W.bellRun?.on && !S.has('sell_BTC') });
 
   // the countdown to the opening bell
   const RUN = { t: 0, on: false };
   W.bellRun = RUN;
-  const LIMIT = 60;
+  const LIMIT = 90;
+  // Orders you have already torn up stay torn up; the bell only restarts the clock.
   const startRun = () => {
     if (S.has('fern_ok')) return;
-    for (const t of TICKETS) delete S.data.flags['sell_' + t];
-    S.save();
     termScreen.redraw();
     RUN.t = LIMIT; RUN.on = true;
     G.sfx('beep');
@@ -347,7 +348,7 @@ export function buildTrading() {
     if (RUN.t <= 0) {
       RUN.on = false;
       G.sfx('bell');
-      G.porter([[L('That was the opening bell. Fortunately for everyone I forgot to press the button, so I will put all four orders back where they were and we can try that again.', '开盘铃响了。幸好我忘了按确认键，所以我把四张订单放回原处，咱们再来一次。'), 5200]]);
+      G.porter([[L('That was the opening bell. Fortunately for everyone I forgot to press the button, so the orders you have not torn up yet are still waiting, and the clock is starting again.', '开盘铃响了。幸好我忘了按确认键，所以还没撕的订单都还在，计时马上重新开始。'), 5200]]);
       setTimeout(startRun, 5600);
     }
   });
