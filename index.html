@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#0a0908" />
+    <title>Party of Three</title>
+    <meta name="description" content="A birthday house for Weishuai, built by Joy." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121311'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23c9a25b' stroke-width='2.5'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700;900&family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Sofia+Sans+Extra+Condensed:wght@500;700;800&family=Sofia+Sans+Semi+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sofia+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+    <div id="hud" hidden>
+      <canvas id="compass" width="560" height="44" aria-hidden="true"></canvas>
+      <div id="goal" aria-hidden="true"><i></i></div>
+      <div id="reticle"><i></i></div>
+      <div id="prompt" aria-live="polite"></div>
+      <div id="timer" aria-live="off"></div>
+      <div id="note" aria-live="polite"></div>
+      <div id="objective"><div class="area"></div><div class="text"></div></div>
+      <div id="lanyard" aria-label="Lanyard"></div>
+      <div id="keys"></div>
+      <div id="lockhint">Click to look around</div>
+    </div>
+    <div id="captions" aria-live="polite"></div>
+    <div id="toasts" aria-live="polite"></div>
+    <div id="chapter" aria-hidden="true"></div>
+    <div id="panels"></div>
+    <div id="menu"></div>
+    <div id="fade"></div>
+    <div id="loading"><span>Building the house…</span></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
