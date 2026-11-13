@@ -87,8 +87,8 @@ const E = {
   },
   ph_boat: {
     kind: 'photo', img: 'img/p7508.jpg',
-    en: () => ({ title: 'A photo', where: 'On the wall of the trading room', caption: 'You and Mom out on a boat, both in life jackets, and you look very pleased about it.' }),
-    zh: () => ({ title: '一张照片', where: '交易室的墙上', caption: '你和妈妈在船上，都穿着救生衣，你看起来特别开心。' }),
+    en: () => ({ title: 'A photo', where: 'On the wall of the trading room', caption: 'You and Joy out on a boat, both in life jackets, and you look very pleased about it.' }),
+    zh: () => ({ title: '一张照片', where: '交易室的墙上', caption: '你和 Joy 在船上，都穿着救生衣，你看起来特别开心。' }),
   },
   ph_lunch: {
     kind: 'photo', img: 'img/p9647.jpg',
