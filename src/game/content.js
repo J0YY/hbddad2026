@@ -81,27 +81,27 @@ const E = {
     }),
   },
   ph_garden: {
-    kind: 'photo', img: 'img/p6110.jpg',
+    kind: 'photo', img: 'img/photo-garden.jpg',
     en: () => ({ title: 'A photo', where: 'On the wall by the tennis court', caption: 'You and Joy on the grass, mid-hug.' }),
     zh: () => ({ title: '一张照片', where: '网球场边的墙上', caption: '你和 Joy 在草地上，正抱在一起。' }),
   },
   ph_boat: {
-    kind: 'photo', img: 'img/p7508.jpg',
+    kind: 'photo', img: 'img/photo-boat.jpg',
     en: () => ({ title: 'A photo', where: 'On the wall of the trading room', caption: 'You and Joy out on a boat, both in life jackets, and you look very pleased about it.' }),
     zh: () => ({ title: '一张照片', where: '交易室的墙上', caption: '你和 Joy 在船上，都穿着救生衣，你看起来特别开心。' }),
   },
   ph_lunch: {
-    kind: 'photo', img: 'img/p9647.jpg',
+    kind: 'photo', img: 'img/photo-lunch.jpg',
     en: () => ({ title: 'A photo', where: 'On the wall of the computer room', caption: 'Lunch out with Mom.' }),
     zh: () => ({ title: '一张照片', where: '机房的墙上', caption: '和妈妈出去吃午饭。' }),
   },
   ph_selfie: {
-    kind: 'photo', img: 'img/p9631.jpg',
+    kind: 'photo', img: 'img/photo-selfie.jpg',
     en: () => ({ title: 'A photo', where: 'Pinned to the front of the tent', caption: 'The three of you, squeezed into one selfie.' }),
     zh: () => ({ title: '一张照片', where: '别在帐篷前面', caption: '你们三个，挤在一张自拍里。' }),
   },
   ph_tea: {
-    kind: 'photo', img: 'img/p9454.jpg',
+    kind: 'photo', img: 'img/photo-tea.jpg',
     en: () => ({ title: 'A photo', where: 'On the kitchen wall', caption: 'Bubble tea with Joy, who was holding the camera and the other cup.' }),
     zh: () => ({ title: '一张照片', where: '厨房的墙上', caption: '和 Joy 一起喝奶茶，相机和另一杯都在她手里。' }),
   },

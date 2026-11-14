@@ -301,6 +301,6 @@ export function buildLab() {
   mark('tray', [CASE.x, 0.97, CASE.z + 0.85]);
   mark('chip', [px, CASE.top, pz]);
   // one of the family photos hidden around the house
-  familyPhoto(g, 'ph_lunch', { img: 'img/p9647.jpg', pos: [-2.5, 1.75, -20.16], ry: Math.PI, portrait: true });
+  familyPhoto(g, 'ph_lunch', { img: 'img/photo-lunch.jpg', pos: [-2.5, 1.75, -20.16], ry: Math.PI, portrait: true });
   return g;
 }

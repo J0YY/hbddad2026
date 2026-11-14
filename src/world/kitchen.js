@@ -295,6 +295,6 @@ export function buildKitchen() {
   mark('oven', [-24.4, 0.6, -54.1]);
   mark('shelf', [-29.55, 1.05, -46.3]);
   // one of the family photos hidden around the house
-  familyPhoto(g, 'ph_tea', { img: 'img/p9454.jpg', pos: [-19.5, 1.7, -54.84], ry: 0, portrait: true });
+  familyPhoto(g, 'ph_tea', { img: 'img/photo-tea.jpg', pos: [-19.5, 1.7, -54.84], ry: 0, portrait: true });
   return g;
 }

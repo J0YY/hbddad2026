@@ -265,7 +265,7 @@ export function buildOutdoors() {
   // the pocket on the tent and the mug line
   const pocket = box(camp, [0.3, 0.25, 0.03], M(0x6a3420, { r: 0.9 }), [0.75, 0.4, 1.12]);
   // one of the family photos, pinned to the front of the tent
-  familyPhoto(camp, 'ph_selfie', { img: 'img/p9631.jpg', pos: [-0.62, 0.36, 1.13], ry: 0, size: 0.3 });
+  familyPhoto(camp, 'ph_selfie', { img: 'img/photo-selfie.jpg', pos: [-0.62, 0.36, 1.13], ry: 0, size: 0.3 });
   cyl(camp, 0.025, 0.025, 1.4, M(0x4a3420), [1.6, 0, 1.2]);
   cyl(camp, 0.025, 0.025, 1.4, M(0x4a3420), [2.8, 0, 1.2]);
   const line = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, 1.2, 4), M(0x9a8a70));

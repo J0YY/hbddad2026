@@ -411,6 +411,6 @@ export function buildTrading() {
   mark('mandate', [0, 0.8, dz + 0.1]);
   mark('labreader', [-4.4, 1.2, -19.85]);
   // one of the family photos hidden around the house
-  familyPhoto(g, 'ph_boat', { img: 'img/p7508.jpg', pos: [4.6, 1.75, -19.84], ry: 0 });
+  familyPhoto(g, 'ph_boat', { img: 'img/photo-boat.jpg', pos: [4.6, 1.75, -19.84], ry: 0 });
   return g;
 }

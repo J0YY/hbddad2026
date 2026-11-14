@@ -266,6 +266,6 @@ export function buildCourt() {
   mark('umpire', [-11.85, 1.3, C.net]);
   mark('kdoor', [-15.9, 1.1, -50.0]);
   // one of the family photos hidden around the house
-  familyPhoto(g, 'ph_garden', { img: 'img/p6110.jpg', pos: [-15.84, 1.8, -42], ry: Math.PI / 2, portrait: true, size: 0.6 });
+  familyPhoto(g, 'ph_garden', { img: 'img/photo-garden.jpg', pos: [-15.84, 1.8, -42], ry: Math.PI / 2, portrait: true, size: 0.6 });
   return g;
 }
