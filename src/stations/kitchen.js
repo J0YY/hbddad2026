@@ -49,8 +49,7 @@ export function prepStation() {
         if (r.ok) {
           G.sfx('good');
           S.set('prep_ok');
-          S.set('service_ok'); // the stew goes on and the ladle token comes out at the serving window
-          ctx.say(L('That’s 200 g of onion, 300 g of carrot and 500 g of meat, exactly 1,000 g in all. The stew goes on the stove, and a token slides out at the serving window.', '洋葱 200 克，胡萝卜 300 克，肉 500 克，一共正好 1000 克。炖菜上了灶，出菜窗口滑出来一块铜牌。'), 'good');
+          ctx.say(L('That’s 200 g of onion, 300 g of carrot and 500 g of meat, exactly 1,000 g in all, and the stove clicks on by itself.', '洋葱 200 克，胡萝卜 300 克，肉 500 克，一共正好 1000 克，灶台自己咔哒一声点着了。'), 'good');
           setTimeout(() => ctx.close(), 1800);
           return;
         }

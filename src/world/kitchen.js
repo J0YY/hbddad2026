@@ -245,6 +245,21 @@ export function buildKitchen() {
       G.station('prep');
     },
   });
+  item({ id: 'stewcard', pos: [-26.55, 1.1, -54.1], obj: stewcard, reach: 1.8, label: () => L('Read the stew card', '看炖菜卡片'), use: () => G.read('stewcard') });
+  item({ id: 'ricelid', pos: [-26.03, 1.1, -54.43], obj: rice, reach: 1.8, label: () => L('Lift the rice pot lid', '掀开米饭锅盖'), use: () => G.read('ricelid') });
+  item({ id: 'garnish', pos: [-25.55, 1.05, -54.2], obj: herbs, reach: 1.8, label: () => L('Read the garnish tag', '看配菜标签'), use: () => G.read('garnishtag') });
+  item({
+    id: 'board', pos: [-24.4, 1.85, -54.8], obj: board.mesh, reach: 2.3,
+    label: () => (S.has('service_ok') ? L('Look at the cooking timetable', '看做饭时间表') : L('Plan the cooking times', '安排做饭时间')),
+    use: () => {
+      if (S.has('service_ok')) { G.read('serviceboard'); return; }
+      if (!S.has('prep_ok')) { G.note(L('There’s nothing to cook yet, so weigh out the ingredients on the scale first.', '现在还没东西可做，先在秤上把食材称好。')); return; }
+      const times = ['stewcard', 'ricelid', 'garnishtag'].filter(seen).length;
+      if (times < 3) { G.note(L(`You need all three cooking times first, for the stew, the rice and the garnish, and you’ve found ${times} of 3. They’re all somewhere around the stove.`, `先要知道三样东西的时间：炖菜、米饭和配菜，你现在找到了 ${times} 样。都在灶台附近。`)); return; }
+      S.addJournal('serviceboard');
+      G.station('service');
+    },
+  });
   item({
     id: 'pass', pos: [-16.45, 1.05, -47.35], obj: ladle, reach: 2,
     label: () => L('Take the token from the serving window', '从出菜窗口拿铜牌'),
@@ -253,20 +268,32 @@ export function buildKitchen() {
   });
   item({
     id: 'oven', pos: [-24.4, 0.6, -54.1], obj: oven, reach: 1.9,
-    label: () => (!S.has('bowl2') ? L('Take the two bowls out of the oven', '从烤箱里拿出两个碗') : L('Oven', '烤箱')),
+    label: () => (!S.has('oven_light') ? L('Turn on the oven light', '打开烤箱灯') : !S.has('bowl2') ? L('Take the two bowls', '拿出两个碗') : L('Oven', '烤箱')),
     use: () => {
-      if (S.has('bowl2')) { G.note(L('The oven is empty now, although it’s still nice and warm.', '烤箱现在空了，不过还热乎乎的。')); return; }
-      if (!S.has('tok_ladle')) { G.sfx('deny'); G.note(L('The two missing bowls are in here, but there’s nothing to put in them yet, so weigh out the ingredients first.', '少的那两个碗就在这里面，可现在还没东西可装，先去称食材吧。')); return; }
-      S.set('oven_light'); S.set('bowl2'); S.set('tray_set');
-      G.give('bowl2', ['Two bowls', '两个碗']);
+      if (!S.has('oven_light')) { S.set('oven_light'); G.sfx('click'); G.note(L('There are two bowls inside, hidden in the one place Porter would never think to look.', '里面有两个碗，藏在 Porter 怎么也想不到去看的地方。')); return; }
+      if (!S.has('bowl2')) { S.set('bowl2'); G.give('bowl2', ['Two bowls', '两个碗']); return; }
+      G.note(L('The oven is empty now, although it’s still nice and warm.', '烤箱现在空了，不过还热乎乎的。'));
+    },
+  });
+  item({
+    id: 'shelf', pos: [-29.55, 1.05, -46.3], obj: shelf, reach: 2,
+    label: () => (S.has('tok_ladle') && S.has('bowl2') ? L('Put the tray on the shelf', '把托盘放到架子上') : L('Shelf by the back door', '后门边的架子')),
+    when: () => !S.has('tray_set'),
+    use: () => {
+      if (!S.has('tok_ladle')) { G.note(L('This shelf is where the finished trays go, and nothing has been cooked yet.', '这个架子是放做好的托盘的，可现在还什么都没做好。')); return; }
+      if (!S.has('bowl2')) { G.note(L('There’s only one bowl on the tray, and Joy’s note said there were more of them somewhere.', '托盘上只有一个碗，Joy 的纸条里说别处还有。')); return; }
+      S.set('tray_set');
+      G.sfx('pickup');
       setTimeout(() => { S.set('out_door'); G.sfx('door'); G.porter([[L('Three bowls for a party of one is highly irregular, but I will allow it, and the back door is now open.', '一位宾客配三个碗，实在不合规矩，不过我就批准了，后门已经开了。'), 3800]]); }, 700);
     },
   });
 
   mark('stand', [-22.3, 1.05, -41.4]);
   mark('scale', [-23.8, 1.0, -41.4]);
+  mark('board', [-24.4, 1.85, -54.8]);
   mark('pass', [-16.45, 1.05, -47.35]);
   mark('oven', [-24.4, 0.6, -54.1]);
+  mark('shelf', [-29.55, 1.05, -46.3]);
   // one of the family photos hidden around the house
   familyPhoto(g, 'ph_tea', { img: 'img/p9454.jpg', pos: [-19.5, 1.7, -54.84], ry: 0, portrait: true });
   return g;

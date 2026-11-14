@@ -82,8 +82,8 @@ const E = {
   },
   ph_garden: {
     kind: 'photo', img: 'img/p6110.jpg',
-    en: () => ({ title: 'A photo', where: 'On the wall by the tennis court', caption: 'You and Mom on the grass, mid-hug.' }),
-    zh: () => ({ title: '一张照片', where: '网球场边的墙上', caption: '你和妈妈在草地上，正抱在一起。' }),
+    en: () => ({ title: 'A photo', where: 'On the wall by the tennis court', caption: 'You and Joy on the grass, mid-hug.' }),
+    zh: () => ({ title: '一张照片', where: '网球场边的墙上', caption: '你和 Joy 在草地上，正抱在一起。' }),
   },
   ph_boat: {
     kind: 'photo', img: 'img/p7508.jpg',
@@ -102,8 +102,8 @@ const E = {
   },
   ph_tea: {
     kind: 'photo', img: 'img/p9454.jpg',
-    en: () => ({ title: 'A photo', where: 'On the kitchen wall', caption: 'Bubble tea, and a cheers from whoever was holding the camera.' }),
-    zh: () => ({ title: '一张照片', where: '厨房的墙上', caption: '奶茶，还有举着相机的人跟你碰了个杯。' }),
+    en: () => ({ title: 'A photo', where: 'On the kitchen wall', caption: 'Bubble tea with Joy, who was holding the camera and the other cup.' }),
+    zh: () => ({ title: '一张照片', where: '厨房的墙上', caption: '和 Joy 一起喝奶茶，相机和另一杯都在她手里。' }),
   },
   drawernote: {
     kind: 'letter',
@@ -199,12 +199,12 @@ const E = {
     en: () => ({
       title: 'Under the recipe stand', where: 'The kitchen',
       body: ['Dad,', 'Porter cleared two of our three bowls off the table, twice, because he’s convinced only one person is coming to dinner. I’ve hidden them in the oven, which is the one place I’m fairly sure he never looks.', 'The stew makes enough for three, and yes, the three is on purpose.', 'Joy'],
-      todo: ['Read the note next to the scale, then weigh out the ingredients. Every label on the containers is wrong, so you’ll have to work out what’s really inside each one.', 'Once the stew is on, take the ladle token from the serving window.', 'Take the two hidden bowls out of the oven, and Porter will open the back door for you.'],
+      todo: ['Read the note next to the scale, then weigh out the ingredients. Every label on the containers is wrong, so you’ll have to work out what’s really inside each one.', 'Plan the cooking on the board by the stove, so the stew, the rice and the garnish are all ready at the same time. The stew card, the rice pot lid and the garnish tag each tell you how long theirs takes.', 'Take the ladle token from the serving window, and turn on the oven light to find the two hidden bowls.', 'Put the tray on the shelf by the back door, and Porter will open the door outside for you.'],
     }),
     zh: () => ({
       title: '菜谱架下面', where: '厨房',
       body: ['爸：', 'Porter 把我们三个碗里的两个从桌上收走了，还收了两回，因为他认定晚饭只来一个人。我把碗藏进了烤箱，我敢肯定他从来不往那儿看。', '这份炖菜够三个人吃，三个人是我特意的。', 'Joy'],
-      todo: ['先看秤旁边的纸条，再称食材。罐子上的标签全贴错了，你得想清楚每个罐子里到底装的是什么。', '炖菜上了灶，就去出菜窗口拿汤勺铜牌。', '从烤箱里拿出藏着的两个碗，Porter 就会给你打开后门。'],
+      todo: ['先看秤旁边的纸条，再称食材。罐子上的标签全贴错了，你得想清楚每个罐子里到底装的是什么。', '在灶台旁的板子上安排做饭时间，让炖菜、米饭和配菜同时做好。炖菜卡片、米饭锅盖和配菜标签上各写着要做多久。', '从出菜窗口拿汤勺铜牌，再打开烤箱灯，找到藏起来的两个碗。', '把托盘放到后门旁边的架子上，Porter 就会给你打开去外面的门。'],
     }),
   },
   recipe: {
@@ -349,7 +349,7 @@ const HINTS_T = {
   prep: [
     ['Read the note next to the scale first, and then look through the one container that has a window in it.', '先看秤旁边的纸条，再从那个带小窗的罐子往里看。'],
     ['Every label is wrong. If the Meat label is really onion, then the Carrot label can’t be carrot, and it can’t be onion either.', '每个标签都是错的。如果“肉”罐里其实是洋葱，那“胡萝卜”罐里既不是胡萝卜，也不是洋葱。'],
-    ['Pour the Meat container into the onion bowl (200 g), the Onion container into the carrot bowl (300 g), and the Carrot container into the meat bowl (500 g). Then take the token from the serving window.', '“肉”罐倒进洋葱碗，200 克；“洋葱”罐倒进胡萝卜碗，300 克；“胡萝卜”罐倒进肉碗，500 克。然后去出菜窗口拿铜牌。'],
+    ['Pour the Meat container into the onion bowl (200 g), the Onion container into the carrot bowl (300 g), and the Carrot container into the meat bowl (500 g).', '“肉”罐倒进洋葱碗，200 克；“洋葱”罐倒进胡萝卜碗，300 克；“胡萝卜”罐倒进肉碗，500 克。'],
   ],
   service: [
     ['The stew card, the rice pot lid and the garnish tag each give a cooking time, and all three are somewhere around the stove.', '炖菜卡片、米饭锅盖和配菜标签上各有一个时间，三样都在灶台附近。'],
@@ -359,7 +359,7 @@ const HINTS_T = {
   tray: [
     ['Joy’s note under the recipe stand says where the other two bowls are.', '菜谱架下面 Joy 的纸条说了另外两个碗在哪儿。'],
     ['They’re hidden in the oven.', '藏在烤箱里。'],
-    ['Take the bowls out of the oven, and Porter opens the back door.', '把碗从烤箱里拿出来，Porter 就会打开后门。'],
+    ['Turn on the oven light, take the bowls out, and then put the tray on the shelf by the back door.', '打开烤箱灯，把碗拿出来，再把托盘放到后门边的架子上。'],
   ],
   beacon: [
     ['Go to the split pine, the tree with two trunks and a loop of blue thread round it, and read the tag on it. It’s P on Joy’s map.', '去分叉松树那儿，就是有两根树干、系着一圈蓝线的那棵，看看上面的标签。它是 Joy 地图上的 P。'],
